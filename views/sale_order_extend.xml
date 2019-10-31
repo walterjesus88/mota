@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+  	<record id="sale_extend_mota" model="ir.ui.view">
+            <field name="name">sale.order.extended.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+	           	<xpath expr="//field[@name='partner_id']" position="after">
+	                <field  name="pedido"/>             
+	                <field  name="obra"/>             
+	                <field  name="area"/>             
+	                <field  name="solicitante"/> 				
+	            </xpath> 
+	            <xpath expr="//field[@name='confirmation_date']" position="after">	   
+					<field  name="codigo"/> 
+	                <field  name="fecha"/> 
+	                <field  name="partida"/> 
+					<field  name="autorizado"/>             
+                  	<field  name="recibido"/>  				
+	            </xpath> 
+
+
+
+	            
+	            <xpath expr="//page[@name='other_information']//group//group[@name='sales_person']" position="attributes">	   <attribute name="invisible">1</attribute> 
+	            </xpath>
+
+	            <xpath expr="//page[@name='other_information']//group//group[@name='sale_pay']" position="attributes">
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath>
+
+	            <xpath expr="//page[@name='other_information']//group//group[@name='technical']" position="attributes">
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath>
+
+
+	          <!--   <xpath expr="//page[@name='other_information']//group//group[@name='sale_pay']//field[@name='date_order']" position="replace">	   
+	            </xpath> 
+	            <xpath expr="//page[@name='other_information']//group//group[@name='sale_pay']//field[@name='fiscal_position_id']" position="replace">	   
+	            </xpath> -->
+
+            </field>
+    </record>      
+
+  </data>
+</odoo>

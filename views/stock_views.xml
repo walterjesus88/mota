@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+	<!-- 
+	=====================================================
+	Picking Extension
+	=====================================================
+	-->  
+
+        <record id="picking_ext_pe" model="ir.ui.view">
+            <field name="name">picking.extended.form</field>
+            <field name="model">stock.picking</field>
+            
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='partner_id']" position="after">
+                  <field  name="numeral"/>             
+                  <field  name="destinatario"/>
+               </xpath>  
+               <xpath expr="//field[@name='scheduled_date']" position="replace">
+                  <field  name="fecha_emision"/>
+               </xpath>
+               <xpath expr="//field[@name='date_done']" position="replace">
+                  <field  name="fecha_traslado"/>
+                  <field  name="punto_partida"/>
+                  <field  name="punto_llegada"/>
+               </xpath>
+
+                  <notebook position="inside">
+                    <page string="Vehiculo" >
+                    <group col="2" colspan="2">
+                        <separator string="Nota Entrega" colspan="2"/>
+                        <field  name="vehiculo_id"/>
+                        <field  name="ruc"/>
+                        <field  name="motivo_traslado"/>
+                    </group>
+                </page>
+                </notebook>    
+            </field>
+        </record>
+
+
+  </data>
+</odoo>

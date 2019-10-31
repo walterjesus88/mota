@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+	<template id="report_salesd_inherit" inherit_id="sale.report_saleorder_document">
+	 	
+	 	<xpath expr="//h2" position="replace">
+	 	</xpath>
+
+		<xpath expr="//t[@t-set='address']" position="replace">
+			<center><h5>Nº <span t-field="doc.pedido"/></h5></center>
+			<center><span>PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
+			<br/>
+	 	</xpath>
+
+	 	<xpath expr="//div[@id='informations']" position="replace">
+        	<div class="row">
+                <div class="col-8">
+        			<p>Obra/Centro de costos: <span t-field="doc.obra"/></p>
+        		</div>
+        		<div class="col-4">
+        			<p>Fecha: <span t-field="doc.fecha"/></p>
+        		</div>        		
+        	</div>
+        	<div class="row">
+                <div class="col-8">
+        			<p>Frente/Area: <span t-field="doc.area"/></p>
+        		</div>
+        		  <div class="col-4">
+        			<p>Partida: <span t-field="doc.partida"/></p>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-8">
+        			<p>Solicitado por: <span t-field="doc.solicitante"/></p>
+        		</div>
+        		  <div class="col-4">
+        			<p>Codigo: <span t-field="doc.codigo"/></p>
+        		</div>
+        	</div>
+        	<br/>
+	 	</xpath>
+
+	 	<xpath expr="//div[@name='signature']" position="after">
+        	<div class="row">	
+                <div class="col-6">
+				    <p>Autorizado por: <span t-field="doc.autorizado"/></p>
+				</div>			
+			    <div class="col-6">
+				    <p>Firma:</p>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<p>Recibido por: <span t-field="doc.recibido"/></p>
+				</div>
+			    <div class="col-6">
+					<p>Firma:</p>
+				</div>
+			</div>
+		</xpath>
+
+	 	<xpath expr="//table//thead//tr//th[3]" position="replace">
+	 	</xpath>
+	 	<xpath expr="//table//thead//tr//th[4]" position="replace">
+	 	</xpath>
+	 	<xpath expr="//table//thead//tr//th//t[@groups='account.group_show_line_subtotals_tax_excluded']" position="replace">
+	 	</xpath>
+	
+		<xpath expr="//table//tbody//t//tr//t//td[3]" position="replace">
+	 	</xpath>
+
+ 		<xpath expr="//table//tbody//t//tr//t//td[4]" position="replace">
+	 	</xpath>
+
+ 		<xpath expr="//table//tbody//t//tr//t//td//span[@groups='account.group_show_line_subtotals_tax_excluded']" position="replace">
+	 	</xpath>
+
+	 	<xpath expr="//table//tbody//t//tr//t//td//span[@groups='account.group_show_line_subtotals_tax_included']" position="replace">
+	 	</xpath>
+
+	 	<xpath expr="//div[@class='clearfix']" position="replace">
+	 	</xpath>
+       
+        <div class="oe_structure"/>
+
+	</template>			
+  </data>
+</odoo>
