@@ -13,7 +13,7 @@
 	                <field  name="area"/>             
 	                <field  name="solicitante"/> 				
 	            </xpath> 
-	            <xpath expr="//field[@name='confirmation_date']" position="after">	   
+	            <xpath expr="//field[@name='validate_date']" position="after">	   
 					<field  name="codigo"/> 
 	                <field  name="fecha"/> 
 	                <field  name="partida"/> 
