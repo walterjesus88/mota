@@ -20,7 +20,7 @@
         <div class="row">
                         <div class="col-6">
                             <div class="col-12">
-                              <p >Destinatario: <span t-field="o.destinatario"/></p>                               
+                              <p >Destinatario: <span t-field="o.partner_id.name"/></p>                               
                               <p >RUC: <span t-field="o.ruc"/> </p> 
                               <p >Domicilio del punto de llegada: <span t-field="o.punto_llegada"/> </p> 
                               <p >Motivo de Traslado: <span t-field="o.motivo_traslado"/></p> 
