@@ -17,9 +17,9 @@
                 <div class="col-8">
         			<p>Obra/Centro de costos: <span t-field="doc.obra"/></p>
         		</div>
-        		<div class="col-4">
+        	<!-- 	<div class="col-4">
         			<p>Fecha: <span t-field="doc.fecha"/></p>
-        		</div>        		
+        		</div>       -->  		
         	</div>
         	<div class="row">
                 <div class="col-8">

@@ -11,6 +11,16 @@
     'description': """
 		prueba dd
 	""",
-'data': ['views/stock_views.xml','views/sale_order_extend.xml','views/stock_report.xml','views/sale_report.xml'],
+'data': [
+        #'res_company_data.xml',
+        'security/user_groups.xml',
+        'security/ir.model.access.csv',
+        'reports/report_proceso_mota.xml',
+		'views/stock_views.xml',
+		'views/sale_order_extend.xml',
+		'views/stock_report.xml',
+		'views/sale_report.xml',
+        'guia_report.xml',
+        ],
 'depends' : ['base', 'account', 'stock', 'sale'], 
 }    

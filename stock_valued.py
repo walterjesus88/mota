@@ -8,15 +8,15 @@ from odoo import models,fields
 # Stock Picking
 #----------------------------------------------------------
 class stock_picking(models.Model):
-    _inherit = 'stock.picking'
-    numeral = fields.Char(string='Nro Guia de Remision de Remitente')
+    _inherit = 'purchase.order'
+    numeral = fields.Integer(required=True,string='Guia de Remision de Remitente Nº')
     punto_llegada = fields.Char(string='Domicilio del punto de llegada')
     punto_partida = fields.Char(string='Domicilio del punto de partida')
     ruc = fields.Char(string='ruc')
-    destinatario = fields.Char(string='destinatario')
+    destinatario = fields.Char(string='Destinatario')
 
     fecha_traslado = fields.Datetime(
-        'fecha de inicio de traslado',
+        'Fecha Inicio Traslado',
         default=fields.Datetime.now, index=True, track_visibility='onchange',
         states={'done': [('readonly', True)], 'cancel': [('readonly', True)]},
         help="Creation Date, usually the time of the order")
@@ -31,3 +31,12 @@ class stock_picking(models.Model):
         ('devolucion', 'Devolucion')]
         )
     vehiculo_id = fields.Many2one('fleet.vehicle', 'vehiculos', track_visibility="onchange", help='Driver of the vehicle', copy=False, auto_join=True)
+
+
+class PurchaseOrderLineMota(models.Model):
+    _inherit = 'purchase.order.line'
+    _description = 'Purchase Order Line Mota'
+    unidad = fields.Char(string='Unidad')
+    peso = fields.Char(string='Peso')
+    pedido_obs = fields.Char(string='Pedido Observaciones')
+    

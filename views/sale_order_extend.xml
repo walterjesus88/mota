@@ -1,47 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
+	<data>
+		<!-- 
+	=====================================================
+	Impresion vale entrega
+	=====================================================
+	-->  
 
-  	<record id="sale_extend_mota" model="ir.ui.view">
+	
+<!--     	<record id="sale_extend_mota_p" model="ir.ui.view">
+            <field name="name">sale.order.extend.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock_qty"/>             
+            <field name="arch" type="xml">
+            	<field name="price_unit" position="attributes">
+	           		<attribute name="invisible">1</attribute>					
+            	</field>
+            </field>
+        </record>	
+ -->
+  		<record id="sale_extend_mota" model="ir.ui.view">
             <field name="name">sale.order.extended.form</field>
             <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="inherit_id" ref="sale.view_order_form"/> 
             <field name="arch" type="xml">
-	           	<xpath expr="//field[@name='partner_id']" position="after">
-	                <field  name="pedido"/>             
+         
+	         	<xpath expr="/form/header/field[@name='state']" position="replace">
+	            	<field name="state" widget="statusbar" statusbar_visible="inicial" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+	       		</xpath>
+        		<!-- <field name="name" position="attributes"  >
+	
+	           		<attribute name="invisible">0</attribute>					
+					           	
+					<attribute name="attrs">{'readonly':[['state','!=','inicial']]}</attribute>					          	
+				</field> -->	
+
+				<field name="partner_id" position="attributes"  >
+				<!-- 	<attribute name="required">False</attribute> 
+	           		<attribute name="invisible">0</attribute>		 -->			
+					<attribute name="string">Trabajador</attribute>	           	
+					<attribute name="attrs">{'readonly':[['state','!=','inicial']]}</attribute>					          	
+				</field>	
+
+				<!-- 'invisible': [('state', '!=', 'inicial')], <field name="partner_id" attrs="{'invisible': [('state','!=',inicial)]}"></field>	-->
+	          
+	           	<xpath expr="//field[@name='partner_shipping_id']" position="attributes"> 
+					<attribute name="required">False</attribute>	           		
+	           		<attribute name="invisible">1</attribute>
+	           	</xpath>
+	
+	           	<xpath expr="//field[@name='partner_invoice_id']" position="attributes"> 
+					<attribute name="required">False</attribute>
+	           		<attribute name="invisible">1</attribute>
+	           	</xpath>           
+	           	          		       
+ 				<xpath expr="//field[@name='payment_term_id']" position="attributes"> 
+	           		<attribute name="invisible">1</attribute>
+	           	</xpath>
+
+                <label for = "date_order" position = "replace"> 
+                </label>   
+
+                <xpath expr="//field[@name='date_order']" position="replace">	         		
+					<field  name="codigo"/>	
+	            </xpath>   
+
+				<field name="date_order" position="attributes" >						
+					<attribute name="attrs">{'readonly': [('state', '!=', 'inicial')]}</attribute>			
+				</field>			
+	            
+	      <!--       <xpath expr="//field[@name='date_order']" position="replace">	         		
+		
+	            </xpath> -->   
+	            
+	            <!-- <label for = "date_order" position = "replace">
+ 					<label for = "date_order" string = "Fechaxs" />
+                </label>    -->
+                
+	           	<xpath expr="//field[@name='partner_id']" position="after">	         		
+					<field  name="pedido"/>             
 	                <field  name="obra"/>             
 	                <field  name="area"/>             
-	                <field  name="solicitante"/> 				
-	            </xpath> 
-	            <xpath expr="//field[@name='validity_date']" position="after">	   
-					<field  name="codigo"/> 
-	                <field  name="fecha"/> 
-	                <field  name="partida"/> 
-					<field  name="autorizado"/>             
-                  	<field  name="recibido"/>  				
+	                <field  name="solicitante"/> 		
+	                <field  name="autorizado"/> 		
+	                <field  name="recibido"/>     		
 	            </xpath> 
 
+	            <xpath expr="//field[@name='validity_date']" position="replace">	   
+					<field  name="partida"/>
 
-
+	            </xpath> 
 	            
-	            <xpath expr="//page[@name='other_information']//group//group[@name='sales_person']" position="attributes">	   <attribute name="invisible">1</attribute> 
-	            </xpath>
+	           	<xpath expr="//page[@name='other_information']//group//group[@name='sales_person']" position="attributes">	   
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath> 
 
-	            <xpath expr="//page[@name='other_information']//group//group[@name='sale_info']" position="attributes">	   <attribute name="invisible">1</attribute> 
-	            </xpath>
+	          	<xpath expr="//page[@name='other_information']//group//group[@name='sale_info']" position="attributes">	   <attribute name="invisible">1</attribute> 
+	            </xpath> 
 
-	            <xpath expr="//page[@name='other_information']//group//group[@name='utm_link']" position="attributes">
+         		<xpath expr="//page[@name='other_information']//group//group[@name='utm_link']" position="attributes">
 	            	<attribute name="invisible">1</attribute> 
 	            </xpath>
 
 	            <xpath expr="//page[@name='other_information']//group//group[@name='sale_reporting']" position="attributes">
 	            	<attribute name="invisible">1</attribute> 
-	            </xpath>
+	            </xpath> 
 
+	            <xpath expr="//page[@name='customer_signature']" position="attributes">
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath> 
 
+         		<xpath expr="//page[@name='order_lines']//field//tree//field[@name='price_unit']" position="attributes">   
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath>  
+	           
+                <xpath expr="//page[@name='order_lines']//field//tree//field[@name='tax_id']" position="attributes">   
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath>  
 
+	            <xpath expr="//page[@name='order_lines']//field//tree//field[@name='price_subtotal']" position="attributes">   
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath>  
+
+	            <xpath expr="//page[@name='order_lines']//group[@name='note_group']" position="attributes">   
+	            	<attribute name="invisible">1</attribute> 
+	            </xpath> 
             </field>
-    </record>      
+    	</record>   
 
-  </data>
+  		<record id="action_vale_entrega" model="ir.actions.act_window">
+        	<field name="name">Vale Entrega</field>
+        	<field name="type">ir.actions.act_window</field>
+        	<field name="res_model">sale.order</field>
+        	<field name="view_mode">tree,form</field>        
+        </record>
+
+        <record id="sale_order_action_view_mota_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sale.view_order_tree"/>
+            <field name="act_window_id" ref="action_vale_entrega"/>
+        </record>
+
+        <record id="sale_order_action_view_mota_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="foirmatos.sale_extend_mota"/>
+            <field name="act_window_id" ref="action_vale_entrega"/>
+        </record>
+
+
+<!--         <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        	<field name="name">new cotizacion</field>
+
+    	</record>
+
+    	<menuitem id="sale.menu_sale_order"
+    			name="new orders"
+                action="sale.action_orders"
+                parent="sale.sale_order_menu"
+                sequence="4" groups="sales_team.group_sale_salesman"/> -->
+
+        <menuitem id="menu_sale_order_vale"
+            name="Vale de Entrega"
+            action="action_vale_entrega"
+            sequence="2" groups="sales_team.group_sale_salesman"/>
+
+		<!--Pedidos-->
+		<menuitem id="sale_order_menu_mota" name="Pedidos" parent="menu_sale_order_vale" sequence="4" groups="sales_team.group_sale_salesman"/>
+
+		<menuitem id="menu_sale_order_mota" name="Orders" action="sale.action_orders" parent="sale_order_menu_mota"
+            sequence="2" groups="sales_team.group_sale_salesman"/>
+
+
+		<!--Productos-->
+
+   		<menuitem id="product_menu_catalog" name="Products" parent="menu_sale_order_vale" sequence="4" groups="sales_team.group_sale_salesman"/>
+
+ 		<menuitem action="product.product_template_action" id="menu_product_template_action_mota" parent="product_menu_catalog" sequence="1" />
+
+ 		<menuitem id="menu_products_mota" name="Productos de variante" action="product.product_normal_action_sell" parent="product_menu_catalog" groups="product.group_product_variant" sequence="2" active="False"/>
+
+ 	
+
+ 
+	</data>
 </odoo>
