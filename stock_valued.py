@@ -33,6 +33,12 @@ class stock_picking(models.Model):
     vehiculo_id = fields.Many2one('fleet.vehicle', 'vehiculos', track_visibility="onchange", help='Driver of the vehicle', copy=False, auto_join=True)
 
 
+class VehicleMota(models.Model):
+    _inherit = 'fleet.vehicle'
+    _description = 'Vehicle mota'
+ 
+    
+
 class PurchaseOrderLineMota(models.Model):
     _inherit = 'purchase.order.line'
     _description = 'Purchase Order Line Mota'
