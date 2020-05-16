@@ -1,2 +1,2 @@
 name,login,password,email,rol_id/id,groups_id/id
-WALTER JESUS RIVERA SALCEDO,wjesus88@gmail.com,123456,wjesus88@gmail.com,donacion.rol_ogcti,sales_team.group_sale_salesman
+WALTER JESUS RIVERA SALCEDO,wjesus88@gmail.com,123456,wjesus88@gmail.com,donacion.rol_ogcti,stock.group_stock_user

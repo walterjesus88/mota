@@ -51,6 +51,31 @@
       <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
     </record> -->
 
+
+    <!-- Menu de Inventario ocultar-->
+    <record model="ir.ui.menu" id="stock.product_product_menu" >
+      <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
+    </record>
+    <record model="ir.ui.menu" id="stock.menu_stock_scrap" >
+      <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
+    </record>
+    <record model="ir.ui.menu" id="stock.menu_package" >
+      <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
+    </record>
+
+    <record model="ir.ui.menu" id="stock_picking_batch.stock_picking_batch_menu" >
+      <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
+    </record>
+
+    <record model="ir.ui.menu" id="stock.menu_action_production_lot_form" >
+      <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>   
+    </record>
+    
+  
+      
+
+
+
  
 
 
