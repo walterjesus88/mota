@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+	<!-- 
+	=====================================================
+	Picking Extension
+	=====================================================
+	-->  
+
+        <record id="picking_ext_pe" model="ir.ui.view">
+            <field name="name">purchase.extended.form</field>
+            <field name="model">purchase.order</field>
+            
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+            <xpath expr="/form/header/field[@name='state']" position="replace">
+                <field name="state" widget="statusbar" statusbar_visible="draft,purchase" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+            </xpath>
+
+            <xpath expr="//form/header//button[@name='button_done']" position="attributes">
+              <attribute name="invisible">1</attribute> 
+            </xpath>
+            <xpath expr="//form//header//button[@name='print_quotation']" position="attributes">
+              <attribute name="invisible">1</attribute> 
+            </xpath>
+
+            <xpath expr="//form/header//button[@name='action_rfq_send']" position="replace">             
+            </xpath>
+            <xpath expr="//form/header//button[@name='action_rfq_send']" position="replace">             
+            </xpath>
+            <xpath expr="//form/header//button[@name='action_rfq_send']" position="replace">             
+            </xpath>
+
+            <xpath expr="//form//header//button[@name='action_view_invoice']" position="replace">  
+            </xpath>
+            <xpath expr="//form//header//button[@name='action_view_invoice']" position="replace">     
+            </xpath>
+
+
+            
+            <xpath expr="//div[@class='oe_title']" position="replace">
+                <group>
+                  <group style="text-align:left;color:#263238;border-bottom: solid #263238;">
+                    <label for="numeral"  />
+                    <field  name="numeral" nolabel="1"  />                
+                  </group>
+                  <group>                
+                    <label for="destinatario" />
+                    <field  name="destinatario" nolabel="1" />         
+                  </group>
+                </group>             
+            </xpath>
+
+        <!--     <xpath expr="//field[@name='partner_id']" position="attributes">
+              <attribute name="required">False</attribute>
+              <attribute name="invisible">1</attribute>              
+            </xpath> -->
+
+            <xpath expr="//field[@name='partner_ref']" position="attributes">
+              <attribute name="invisible">1</attribute>              
+            </xpath>
+
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field  name="fecha_emision"/>
+                <field  name="fecha_traslado"/>                   
+            </xpath>  
+      
+
+            <xpath expr="//field[@name='company_id']" position="attributes"> 
+              <attribute name="required">False</attribute>                
+              <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='date_order']" position="attributes"> 
+              <attribute name="required">False</attribute>                
+              <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='date_order']" position="after"> 
+              <field name="punto_partida"/>
+              <field name="punto_llegada"/> 
+            </xpath>
+
+            <xpath expr="//page//field//tree//field[@name='price_unit']" position="attributes">   
+              <attribute name="invisible">1</attribute>              
+                                            
+            </xpath>
+            <xpath expr="//page//field//tree//field[@name='price_unit']" position="after">   
+              <field name="unidad"/>                               
+              <field name="peso"/>                               
+              <field name="pedido_obs"/> 
+            </xpath>
+
+
+            <xpath expr="//page//field//tree//field[@name='taxes_id']" position="attributes">   
+              <attribute name="invisible">1</attribute>            
+            </xpath>
+
+            <xpath expr="//page//field//tree//field[@name='price_subtotal']" position="attributes">   
+              <attribute name="invisible">1</attribute>            
+            </xpath> 
+            <xpath expr="//page//field//tree//field[@name='qty_invoiced']" position="attributes">   
+              <attribute name="invisible">1</attribute>            
+            </xpath> 
+
+
+            <xpath expr="//page//group//field[@name='amount_untaxed']" position="replace">
+            </xpath>
+            <xpath expr="//page//group//field[@name='amount_tax']" position="replace">
+            </xpath>
+            <xpath expr="//page//group//field[@name='amount_total']" position="replace">
+            </xpath>
+            <label for = "amount_total" position = "replace"> 
+            </label>   
+            
+           
+            <notebook position="inside">
+              <page string="Vehiculo" >
+                <group col="2" colspan="2">
+                  <separator string="Nota Entrega" colspan="2"/>
+                    <field name="vehiculo_id"/>
+                    <field name="ruc"/>
+                    <field name="motivo_traslado"/>
+                </group>
+              </page>
+            </notebook>  
+
+            
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="attributes">
+              <attribute name="invisible">1</attribute> 
+            </xpath>   
+          </field>
+        </record>
+  </data>
+</odoo>

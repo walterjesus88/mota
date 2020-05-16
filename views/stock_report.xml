@@ -31,7 +31,7 @@
                               <p >Domicilio del punto de partida: <span t-field="o.punto_partida"/></p> 
                             </div>                                             
                         </div>
-                        <div class="col-6">
+                    <!--     <div class="col-6">
                             <div class="col-12">                  
                               <h5>Datos del transportista</h5>   
                               <p>Vehiculo: <span t-field="o.vehiculo_id.sudo().name"/></p> 
@@ -46,7 +46,7 @@
                               <p>Nombre del Chofer: <span t-field="o.vehiculo_id.sudo().driver_id"/></p>                               
                             </div>                           
                            
-                        </div>
+                        </div> -->
                     </div>
           
              

@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-demo_admin, Model admin access,model_purchase_order,foirmatos.group_manager,1,0,0,0
-demo_user, Model user access,model_purchase_order,foirmatos.group_user,1,1,1,1
+
 ventas_admin, Model admin vale,model_sale_order,foirmatos.group_manager,1,1,1,1
 ventas_user, Model user vale,model_sale_order,foirmatos.group_user,1,1,1,1
 access_order_line,sale.order,model_sale_order,base.group_user,0,0,0,0
