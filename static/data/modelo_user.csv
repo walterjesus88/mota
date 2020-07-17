@@ -1,0 +1,7 @@
+name,login,password,email,rol_id/id,groups_id/id
+usuario digesa,user_digesa@correo.com,123,user_digesa@correo.com,donacion.rol_digesa,"base.group_user,donacion.group_donacion_requisito_digesa"
+usuario digemid,user_digemid@correo.com,123,user_digemid@correo.com,donacion.rol_digemid,"base.group_user,donacion.group_donacion_requisito_digemid"
+usuario cooperacion,user_cooperacion@correo.com,123,user_cooperacion@correo.com,donacion.rol_ogcti,"base.group_user,donacion.group_donacion_requisito_ogcai"
+usuario diresa,user_diresa@correo.com,123,user_diresa@correo.com,donacion.rol_diresa,"base.group_user,donacion.group_mision_requisito_diresa"
+usuario disa,user_disa@correo.com,123,user_disa@correo.com,donacion.rol_disa,"base.group_user,donacion.group_mision_requisito_disa"
+usuario_colegio_x,user_colegio_x@correo.com,123,user_colegio_x@correo.com,donacion.rol_colegiado,"base.group_user,donacion.group_mision_colegiados"

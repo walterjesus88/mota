@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+	<template id="report_inherit_operations_albaran" inherit_id="stock.report_picking">
+   
+       <xpath expr="//div[@class='page']" position="replace">
+          <h5><b>Guia de Remision N </b><span t-field="o.numeral"/></h5>
+          <p ><span t-field="o.name"/></p>
+         
+         <div class="row">
+                        <div class="col-6">
+                            <div class="col-12">
+                              <p >Destinatario: <span t-field="o.partner_id.name"/></p>                               
+                              <p >RUC: <span t-field="o.ruc"/> </p> 
+                              <p >Domicilio del punto de llegada: <span t-field="o.punto_llegada"/> </p> 
+                              <p >Motivo de Traslado: <span t-field="o.motivo_traslado"/></p> 
+                            </div> 
+                            <div class="col-12">
+                              <p >Fecha de Emision: <span t-field="o.fecha_emision"/></p>
+                              <p >Fecha de Inicio de Traslado: <span t-field="o.fecha_traslado"/></p>                            
+                              <p >Domicilio del punto de partida: <span t-field="o.punto_partida"/></p> 
+                            </div>                                             
+                        </div>
+                        <div class="col-6">
+                            <div class="col-12">                  
+                              <h5>Datos del transportista</h5>   
+                              <p>Vehiculo: <span t-field="o.vehiculo_id.sudo().name"/></p> 
+                              <p >Nombre: <span t-field="o.destinatario"/></p>
+                              <p>RUC: <span t-field="o.ruc"/></p>
+                              <p>Costo Minimo: <span t-field="o.vehiculo_id.sudo().model_id.brand_id"/></p> 
+                              <h5>Unidad de transportes/Conductor</h5>   
+                              <p>Marca: <span t-field="o.vehiculo_id.sudo().model_id.brand_id"/></p> 
+                              <p>Placa: <span t-field="o.vehiculo_id.sudo().license_plate"/></p>                               
+                              <p>Licencia de Conducir: <span t-field="o.vehiculo_id.sudo().license_plate"/></p>                               
+                              <p>Certificado de Inscripcion: <span t-field="o.vehiculo_id.sudo().license_plate"/></p>                           
+                              <p>Nombre del Chofer: <span t-field="o.vehiculo_id.sudo().driver_id"/></p>                               
+                            </div>                           
+                           
+                        </div>
+                    </div>
+              <table class="table table-sm" t-if="o.state in ['assigned', 'done']">
+                                <thead>
+                                    <tr>
+                                        <th name="th_product">Product</th>
+                                        <th><strong>Quantity</strong></th>
+                                        <th><strong>Unidad</strong></th>
+                                        <th><strong>Peso</strong></th>
+                                        <th><strong>Pedido Observaciones</strong></th>
+                                        <th name="th_pko_from" t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">From</th>
+                                        <th name="th_pki_from" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.move_ids_without_package.sorted(key=lambda m: m.product_id.id)" t-as="move">
+                                        <!-- In case you come accross duplicated lines, ask NIM or LAP -->
+                                        <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="ml.product_id.display_name"/><br/>
+                                                    <span t-field="ml.product_id.description_picking"/>
+                                                </td>
+                                         
+                                                <td>
+                                                    <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                                                    <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                                                    <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+                                                    <span t-field="ml.peso" />
+                                                    <span t-field="ml.unidad" />
+                                                    <span t-field="ml.pedido_obs"/>
+
+                                                </td>
+                                                      
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>  
+
+
+          
+       </xpath> 
+
+
+
+
+    <!-- <xpath expr="//t[@name='partner_header']" position="replace">
+    </xpath>
+    <xpath expr="//table[@class='table table-sm']" position="replace">
+    </xpath>     
+    <xpath expr="//div[@class='page']//h2//span" position="replace">
+    </xpath>
+    <xpath expr="//table[@class='table table-sm mt48']//thead//tr//th[3]" position="inside">
+      <th><strong>Unidad</strong></th>
+      <th><strong>Peso</strong></th>
+      <th><strong>Pedido Observaciones</strong></th>
+    </xpath>
+
+	 	<xpath expr="//div[@class='page']" position="before">
+    
+             
+   
+	    </xpath> -->
+
+	
+	</template>
+  </data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_proceso_donacion">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="o">
+
+                        <div class="page">
+                            <h3><center>Proceso de Donación</center></h3>                           
+
+                            <table class="table table-bordered" >
+                              <thead>
+                                <tr>
+                                </tr>  
+                              </thead>  
+                              <tbody>
+                        
+                              </tbody>
+                            </table>
+
+                           
+                          
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr class="success">
+                                      <th>Nombre de Marca#</th>
+                                      <th>Nombre Generico DCI</th>
+                                      <th>Concentracion</th>
+                                      <th>Forma</th>
+                                      <th>Lote</th>                                   
+                                      <th>Fecha de Vencimiento</th>
+                                      <th>Pais</th>                            
+                                      <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                          <!--           <t t-foreach="o.lista_ids" t-as="eval_prov">
+                                        <tr>
+                                            <td><span t-field="eval_prov.name"/></td>
+                                            <td><span t-field="eval_prov.name_generico"/></td>
+                                            <td><span t-field="eval_prov.concentracion"/></td>
+                                            <td><span t-field="eval_prov.forma"/></td>
+                                            <td><span t-field="eval_prov.lote"/></td>
+                                            <td><span t-field="eval_prov.fecha_vencimiento"/></td>
+                                            <td><span t-field="eval_prov.pais"/></td>
+                                            <td><span t-field="eval_prov.cantidad"/></td>                                         
+                                        </tr>
+                                    </t> -->
+                                </tbody>
+                            </table>
+                          
+                          
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+    </data>
+</openerp>

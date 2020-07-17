@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+	<template id="report_inherit_vale_entrega" inherit_id="stock.report_delivery_document">
+  
+   <xpath expr="//t[@name='partner_header']" position="replace">          
+      <center><h5>Nº <span t-field="o.pedido"/></h5></center>
+      <center><span>PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
+      <br/>
+
+    </xpath>
+    <xpath expr="//table[@class='table table-sm']" position="replace">
+    </xpath>     
+    <xpath expr="//div[@class='page']//h2//span" position="replace">
+  
+    </xpath>
+    <xpath expr="//table[@class='table table-sm mt48']//thead//tr//th[3]" position="inside">
+    
+    </xpath>
+
+    <xpath expr="//div[@class='page']" position="before">
+      <div class="row">
+          <div class="col-8">
+            <p>Obra/Centro de costos: <span t-field="o.obra"/></p>
+          </div>
+      </div>    
+        <div class="row">
+                <div class="col-8">
+              <p>Frente/Area: <span t-field="o.area"/></p>
+            </div>
+              <div class="col-4">
+              <p>Partida: <span t-field="o.partida"/></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <p>Solicitado por: <span t-field="o.solicitante"/></p>
+            </div>
+              <div class="col-4">
+              <p>Codigo: <span t-field="o.codigo"/></p>
+            </div>
+          </div>
+   
+      </xpath>
+
+	</template>
+  </data>
+</odoo>
