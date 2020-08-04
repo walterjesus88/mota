@@ -8,7 +8,7 @@
 
 		<xpath expr="//t[@t-set='address']" position="replace">
 			<center><h5>Nº <span t-field="doc.pedido"/></h5></center>
-			<center><span>PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
+			<center><span>SALIDA PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
 			<br/>
 	 	</xpath>
 

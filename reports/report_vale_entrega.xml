@@ -5,7 +5,7 @@
   
    <xpath expr="//t[@name='partner_header']" position="replace">          
       <center><h5>Nº <span t-field="o.name"/></h5></center>
-      <center><span>PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
+      <center><span>REPORTE PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
       <br/>
 
     </xpath>
@@ -42,6 +42,26 @@
           </div>
    
       </xpath>
+
+
+      <!-- <xpath expr="//div[@name='signature']" position="after"> -->
+       <!--      <div class="row"> 
+              <div class="col-6">
+                <p>Autorizado por: <span t-field="doc.autorizado"/></p>
+              </div>      
+              <div class="col-6">
+                <p>Firma:</p>
+              </div>  
+            </div> -->
+       <!--      <div class="row">
+              <div class="col-6">
+                <p>Recibido por: <span t-field="doc.recibido"/></p>
+              </div>
+              <div class="col-6">
+                <p>Firma:</p>
+              </div>
+            </div> -->
+      <!-- </xpath> -->
 
 	</template>
   </data>

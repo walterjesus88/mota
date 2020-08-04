@@ -5,11 +5,11 @@
 #                       Philmer <philmer@cciconnect.be>
 
 {
-    'name': 'mota',
+    'name': 'mota-engil',
     'version': '1.0',
     'category': 'Accounting',
     'description': """
-		prueba dd
+		Modulo Mota Engil
 	""",
 'data': [
         #'res_company_data.xml',
@@ -20,8 +20,8 @@
 		'views/sale_order_extend.xml',
 		'reports/report_guia_remision.xml',
         'reports/report_vale_entrega.xml',
-		'views/sale_report.xml',
-        'guia_report.xml',
+		'views/report_sale.xml',
+        'reports/guia_report.xml',
         ],
 'depends' : ['base', 'account', 'stock', 'sale'], 
 }    

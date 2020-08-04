@@ -8,21 +8,29 @@
   <field name="sequence">3</field>
 </record>
 
-<record id="group_user" model="res.groups">
+    <record id="group_user" model="res.groups">
      <field name="name">User</field>
      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
      <field name="users" eval="[(4, ref('base.user_root'))]"/>
-     <field name="category_id" ref="foirmatos.module_management"/>
+     <field name="category_id" ref="mota.module_management"/>
     </record>
  
     <record id="group_manager" model="res.groups">
       <field name="name">Manager</field>
-      <field name="implied_ids" eval="[(4, ref('foirmatos.group_user'))]"/>
-      <field name="category_id" ref="foirmatos.module_management"/>
+      <field name="implied_ids" eval="[(4, ref('mota.group_user'))]"/>
+      <field name="category_id" ref="mota.module_management"/>
     </record>
 
     <record id="make_invisible" model="res.groups">
       <field name="name">Invisible</field>
+    </record>
+
+    <record id="group_chalhuahuacho" model="res.groups">
+        <field name="name">Grupo Chalhuahuacho</field>
+    </record>
+
+    <record id="group_campamento_minero1" model="res.groups">
+        <field name="name">Grupo Campamento1</field>
     </record>
 
     <record id="sale.menu_sale_quotations" model="ir.ui.menu"> 

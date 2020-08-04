@@ -4,7 +4,8 @@
 	<template id="report_inherit_operations_albaran" inherit_id="stock.report_picking">
    
        <xpath expr="//div[@class='page']" position="replace">
-          <h5><b>Guia de Remision N </b><span t-field="o.numeral"/></h5>
+          <h5><b>Guia de Remision N </b></h5>
+          <!-- <span t-field="o.numeral"/> -->
           <p ><span t-field="o.name"/></p>
          
          <div class="row">

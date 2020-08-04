@@ -3,12 +3,13 @@
 
 from odoo import models,fields
 
-
 #----------------------------------------------------------
 # Stock Picking
 #----------------------------------------------------------
 class stock_picking(models.Model):
     _inherit = 'stock.picking'
+    _description = 'Transferencia de inventario'
+
     #numeral = fields.Integer(required=True,string='Guia de Remision de Remitente Nº')
     punto_llegada = fields.Char(string='Domicilio del punto de llegada')
     punto_partida = fields.Char(string='Domicilio del punto de partida')

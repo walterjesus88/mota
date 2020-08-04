@@ -5,7 +5,7 @@
   
    <xpath expr="//t[@name='partner_header']" position="replace">          
       <center><h5>Nº <span t-field="o.pedido"/></h5></center>
-      <center><span>PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
+      <center><span>VIEW PEDIDO DE IMPLEMENTOS SUMINISTROS Y MATERIALES</span></center>
       <br/>
 
     </xpath>
