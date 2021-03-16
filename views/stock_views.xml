@@ -14,12 +14,17 @@
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
               
-              <xpath expr="//field[@name='partner_id']" position="after">    
-               <!--  <label for="numeral"  />
-                <field  name="numeral" nolabel="1"  />   -->
-                <label for="destinatario" attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"/>
-                <field  name="destinatario" nolabel="1" /> 
-              </xpath>
+<!--               <xpath expr="//field[@name='partner_id']" position="after">                
+              </xpath> -->
+
+                <!-- <field  name="partner_id" attrs="{'invisible': [('picking_type_code', 'in', ['incoming', 'outgoing'])]}"/> -->
+               
+                <!-- <field  name="numeral" nolabel="1"  />   -->
+                <!--  <label for="destinatario" attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"/>
+                <field  name="destinatario" nolabel="1" />  -->
+
+     
+
               <xpath expr="//field[@name='origin']" position="after"> 
                 <field  name="fecha_emision" attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"/>
                 <field  name="fecha_traslado" attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"/>  
@@ -27,12 +32,13 @@
                 <field name="punto_llegada" attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"/>
               </xpath>
       
-              <xpath expr="//field[@name='scheduled_date']" position="after" > 
-                <field name="obra" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
+              <xpath expr="//field[@name='date_done']" position="replace" > 
+              </xpath>
+              <xpath expr="//field[@name='scheduled_date']" position="replace" > 
+<!--                 <field name="obra" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
                 <field name="area" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
                 <field name="codigo" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
-                <field name="partida" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
-               
+                <field name="partida" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/> -->
               </xpath>
 
               <notebook position="inside">
@@ -44,14 +50,14 @@
                       <field name="motivo_traslado"/>
                   </group>
                 </page>
-                <page string="Permisos" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}" >
+                <!-- <page string="Permisos" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}" >
                   <group col="2" colspan="2">
                     <separator string="Nota Entrega" colspan="2"/>
                      <field name="autorizado" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
                     <field name="recibido" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
                     <field name="solicitante" attrs="{'invisible': [('picking_type_code', '!=', 'outgoing')]}"/>
                   </group>
-                </page>
+                </page> -->
               </notebook> 
               
               <xpath expr="//page[@name='extra']" position="attributes">              

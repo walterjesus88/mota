@@ -74,9 +74,9 @@
 					<field  name="codigo"/>	
 	            </xpath>   
 
-				<field name="date_order" position="attributes" >						
+			<!-- 	<field name="date_order" position="attributes" >						
 					<attribute name="attrs">{'readonly': [('state', '!=', 'inicial')]}</attribute>			
-				</field>			
+				</field>		 -->	
 	            
 	      <!--       <xpath expr="//field[@name='date_order']" position="replace">	         		
 		
@@ -96,8 +96,7 @@
 	            </xpath> 
 
 	            <xpath expr="//field[@name='validity_date']" position="replace">	   
-					<field  name="partida"/>
-
+					<field  name="fecha_entrega"/>
 	            </xpath> 
 	            
 	           	<xpath expr="//page[@name='other_information']//group//group[@name='sales_person']" position="attributes">	   
@@ -121,6 +120,12 @@
 
          		<xpath expr="//page[@name='order_lines']//field//tree//field[@name='price_unit']" position="attributes">   
 	            	<attribute name="invisible">1</attribute> 
+	            </xpath>  
+
+	            <xpath expr="//page[@name='order_lines']//field//tree//field[@name='name']" position="after">
+         			<field  name="fecha_retiro"/>
+					<field  name="fecha_baja"/>
+                	<field  name="tiempo_vida"/>
 	            </xpath>  
 	           
                 <xpath expr="//page[@name='order_lines']//field//tree//field[@name='tax_id']" position="attributes">   
