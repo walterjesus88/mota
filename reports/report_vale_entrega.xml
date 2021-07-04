@@ -44,24 +44,24 @@
       </xpath>
 
 
-      <!-- <xpath expr="//div[@name='signature']" position="after"> -->
-       <!--      <div class="row"> 
+      <xpath expr="//div[@class='page']" position="after">
+            <div class="row"> 
               <div class="col-6">
-                <p>Autorizado por: <span t-field="doc.autorizado"/></p>
+                <p>Autorizado por: <span t-field="o.autorizado"/></p>
               </div>      
               <div class="col-6">
                 <p>Firma:</p>
               </div>  
-            </div> -->
-       <!--      <div class="row">
+            </div>
+            <div class="row">
               <div class="col-6">
-                <p>Recibido por: <span t-field="doc.recibido"/></p>
+                <p>Recibido por: <span t-field="o.recibido"/></p>
               </div>
               <div class="col-6">
                 <p>Firma:</p>
               </div>
-            </div> -->
-      <!-- </xpath> -->
+            </div>
+      </xpath>
 
 	</template>
   </data>

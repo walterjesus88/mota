@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+        <record id="purchase_exte" model="ir.ui.view">
+            <field name="name">purchase.ex.form</field>
+            <field name="model">purchase.order</field>
+            
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">  
+
+              <xpath expr="//group//group//field[@name='date_order']" position="after">
+                <field  name="file_guia"/>   
+              </xpath>
+              <notebook position="inside">
+                <page string="Vehiculo" >
+                  <group col="2" colspan="2">                 
+                    <field name="file_guia"/>               
+                  </group>   
+                </page>
+              </notebook>  
+
+  
+            </field>
+        </record>
+  </data>
+</odoo>

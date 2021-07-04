@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+  	        <record id="sss" model="ir.ui.view">
+            <field name="name">product.tt.form</field>
+            <field name="model">product.template</field>            
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">    
+
+	            <notebook position="inside">
+                <page string="Tiempo de Vida"  >
+                  <group col="2" colspan="2">
+                    <separator string="Tiempo de Vida Promedio" colspan="2"/>
+                    <field name="fecha_retiro"/>  
+                    <field name="fecha_baja" />  
+  		    		      <field name="tiempo_vida" />                  
+                  </group>   
+                  <group col="2" colspan="2">
+                    <separator string="Stock Critico" colspan="2"/>
+                    <field name="tiempo_llegada"/>  
+                    <field name="stock_critico" />               
+                  </group>                
+                </page>
+              </notebook>
+   		
+            </field>
+
+
+    		</record>   
+
+
+  </data>
+</odoo>
+

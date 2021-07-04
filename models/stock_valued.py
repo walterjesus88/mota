@@ -46,6 +46,9 @@ class stock_picking(models.Model):
     vehiculo_id = fields.Many2one('fleet.vehicle', 'vehiculos', track_visibility="onchange", help='Driver of the vehicle', copy=False, auto_join=True)
     #outgoing
     #pedido = fields.Char(string='N de pedido')
+    fecha_vale = fields.Datetime(
+        'Fecha',
+        default=fields.Datetime.now, index=True)
     obra = fields.Char(string='Obra/Centro de costos')
     area = fields.Char(string='Frente/area')
     codigo = fields.Char(string='Codigo')

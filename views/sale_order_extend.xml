@@ -36,11 +36,10 @@
 				<xpath expr="/form/header/button[@name='action_quotation_send']" position="replace">
 	            	
 	       		</xpath>
-	       		<xpath expr="/form/header/button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="replace">
-	            	
+	       		<xpath expr="/form/header/button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="replace">	            	
 	       		</xpath>
-	       		<xpath expr="/form/header/button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="replace">
-	            	
+
+	       		<xpath expr="/form/header/button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="replace">	            	
 	       		</xpath>
 
 
@@ -122,11 +121,11 @@
 	            	<attribute name="invisible">1</attribute> 
 	            </xpath>  
 
-	            <xpath expr="//page[@name='order_lines']//field//tree//field[@name='name']" position="after">
+	        <!--     <xpath expr="//page[@name='order_lines']//field//tree//field[@name='name']" position="after">
          			<field  name="fecha_retiro"/>
 					<field  name="fecha_baja"/>
                 	<field  name="tiempo_vida"/>
-	            </xpath>  
+	            </xpath>   -->
 	           
                 <xpath expr="//page[@name='order_lines']//field//tree//field[@name='tax_id']" position="attributes">   
 	            	<attribute name="invisible">1</attribute> 
