@@ -71,9 +71,9 @@ class product_template_in(models.Model):
             print(r.fecha_baja)
             print(r.fecha_retiro)
             tiempo_vida = r.fecha_baja - r.fecha_retiro
-            #tiempo_vida = r.tiempo_vida
+            
             print(tiempo_vida.days)
-            r.tiempo_vida = tiempo_vida.days
+            #r.tiempo_vida = tiempo_vida.days
 
     @api.depends('tiempo_llegada','tiempo_vida')
     def _stock(self):
@@ -84,7 +84,7 @@ class product_template_in(models.Model):
                 res = round((r.tiempo_llegada/r.tiempo_vida)*0.3)
             else:
                 res = 0
-            r.stock_critico = res
+            #r.stock_critico = res
 
     fecha_retiro = fields.Datetime(
         'Fecha de retiro',
