@@ -14,7 +14,8 @@
 'data': [
         #'res_company_data.xml',
         #'security/user_groups.xml',
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/pedidos_views.xml',
 		'views/sale_order_extend.xml',
         'views/report_sale.xml',
         'reports/report_vale_entrega.xml',
@@ -25,6 +26,7 @@
         'reports/guia_report.xml',
         'reports/report_proceso_mota.xml',
 		'views/stock_views.xml',
+        #'views/openacademy.xml',
         ],
 'depends' : ['base', 'account', 'stock', 'sale','purchase'], 
 }    

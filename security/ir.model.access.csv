@@ -1,8 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-ventas_admin, Model admin vale,model_sale_order,mota.group_manager,1,1,1,1
-ventas_user, Model user vale,model_sale_order,mota.group_user,1,1,1,1
-access_order_line,sale.order,model_sale_order,base.group_user,0,0,0,0
-ventas_order_line,Model order line,model_sale_order_line,sales_team.group_sale_salesman,0,0,0,0
-vehiculo_order,Model vehicle,model_fleet_vehicle,stock.group_stock_user,1,1,1,1
-vehiculo_group_chalhuahuacho,Model vehicle,model_fleet_vehicle,mota.group_chalhuahuacho,1,1,1,1
-transferencia_group_chalhuahuacho,Model stock,model_stock_picking,mota.group_chalhuahuacho,1,1,1,1
+access_motapedido,mota.pedido,model_mota_pedido,base.group_user,1,1,1,1
+access_motapedido_line,mota.line.pedido,model_mota_line_pedido,base.group_user,1,1,1,1

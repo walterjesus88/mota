@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+  	  <!--   <record id="pedidos_pe" model="ir.ui.view">
+            <field name="name">purchase.pedidos</field>
+            <field name="model">pedidosya</field>
+            
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+           
+           		<xpath expr="//group//group//field[@name='partner_id']" position="after">
+                	<field  name="nombre"/>   
+              </xpath>
+ 
+            </field>
+        </record> -->
+
+      <record id="pedido_tree_view" model="ir.ui.view">
+          <field name="name">pedidos.tree</field>
+          <field name="model">mota.pedido</field>
+          <field name="arch" type="xml">
+              <tree string="ANY NAME">
+                  <!-- Add All Fields You Want In The List Here -->
+                  <field name="nombre"/>
+              </tree>
+          </field>
+      </record>
+      <!-- Your Form View Definition -->
+      <record id="pedido_form_view" model="ir.ui.view">
+          <field name="name">pedidos.form</field>
+          <field name="model">mota.pedido</field>
+          <field name="arch" type="xml">
+              <form string="Form View Name" >
+                  <!-- Add All Fields You Want In The Form Here -->
+                  <sheet>
+                    <group>
+                      <group>
+                        <field name="tipo_cambio" />
+                        <field name="moneda" />
+                      
+                      </group>
+                      <group>
+                        <field name="responsable" />
+                      </group>
+                    </group>
+                    <group>
+                      <group>
+                        <field name="prioridad" />
+                      </group> 
+                      <group>
+                        <field name="centro_productivo" />
+                        <field name="fecha_emision" />
+                        <field name="centro_costos" />                      
+                      </group> 
+                    </group>
+                  <notebook>
+                    <page string="Products">
+                              
+                      <field name="order_line"
+                                widget="section_and_note_one2many"
+                                >
+                        <tree string="Pedido Order Lines" editable="bottom">
+                          <field name="posicion" />
+                          <field name="codigo_articulo" />
+                          <field name="codigo_fabricante" />
+                          <field name="descripcion" />
+                          <field name="unidad" />
+                          <field name="cantidad" />
+                          <field name="fecha_maxima_entrega" />
+                          <field name="calidad" />
+                          <field name="numero_solicitudes" />
+                        </tree>
+                      </field>
+                    </page>
+                  </notebook>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+<!-- window action -->
+  
+        <record id="pedido_list_action" model="ir.actions.act_window">
+          <field name="name">Pedidos</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">mota.pedido</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first course
+            </p>
+        </field>    
+        </record>
+
+        <record id="pedido_action_view_open_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="pedido_tree_view"/>        
+            <field name="act_window_id" ref="pedido_list_action"/>
+        </record>
+
+        <record id="pedido_action_view_mota_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pedido_form_view"/>
+            <field name="act_window_id" ref="pedido_list_action"/>
+        </record>
+
+
+
+    <!-- top level menu: no parent -->
+    <menuitem name="pedido" id="menu_root_pedido"/>
+  
+    <menuitem name="pedios os" id="pedido_menu" parent="menu_root_pedido"/>
+
+    <menuitem name="peds" id="mota.pedidos_menu" parent="pedido_menu"
+    action="pedido_list_action"/>
+
+
+
+<!-- 
+        <record id="purchase_pedidos_action_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pedidosmota_tree"/>
+            <field name="act_window_id" ref="mota_pedidos_action"/>
+        </record>
+
+        <record id="purchase_pedidos_action_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pedidosmota_form"/>
+            <field name="act_window_id" ref="mota_pedidos_action"/>
+        </record>
+
+
+    <menuitem name="openacademy" id="menu_root"/>
+  
+    <menuitem name="Open Academy" id="openacademy_menu" parent="menu_root"/>
+
+     <menuitem name="Courses" id="mota.courses_menu" parent="openacademy_menu"
+    action="mota_pedidos_action"/> -->
+
+<!--         <menuitem id="menu_hase_pedidos"
+            name="Pedidoszzz"
+            action="mota_pedidos_action"
+            sequence="1" groups="sales_team.group_sale_salesman"/> -->
+
+          <!--Pedidos-->
+<!--       <menuitem id="pedidos_menu_mota" name="dddddd" parent="menu_hase_pedidos" sequence="4" groups="sales_team.group_sale_salesman"/> -->
+
+
+  </data>
+</odoo>
+
+ 

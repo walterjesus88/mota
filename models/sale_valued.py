@@ -58,6 +58,49 @@ class purchase_guia(models.Model):
     _inherit = 'purchase.order' 
     file_guia = fields.Binary(string='Guía de Remisión', attachment=True)
 
+class Pedido(models.Model):
+    _name='mota.pedido'
+    _description = 'Transferencia de pedido'
+    nombre = fields.Char(string='Descripcion')  
+    moneda = fields.Char(string='Moneda del presupuesto operativo')
+    tipo_cambio = fields.Char(string='Tipo de cambio')
+    responsable = fields.Selection([
+        ('Usuario', 'usuarios'),
+        ('Compras', 'compras')])
+    prioridad = fields.Selection([
+        ('Alta', 'alta'),
+        ('Media', 'media'),
+        ('Baja', 'baja'),])
+    fecha_emision = fields.Datetime(
+        'Fecha de emision',
+        default=fields.Datetime.now, index=True, track_visibility='onchange',
+        help="Fecha de Emision")
+    centro_productivo = fields.Char(string='Centro productivo')
+    centro_costos = fields.Char(string='Centro de costos')
+    order_line = fields.One2many('mota.line.pedido', 'order_id', string='Order Lines',copy=True)
+
+class Pedido_detalle(models.Model):
+    _name='mota.line.pedido'
+    _description = 'Transferencia de pedido'
+
+    order_id = fields.Many2one('mota.pedido', string='Order Reference', index=True, required=True, ondelete='cascade')
+    unidad = fields.Char(string='Unidad')
+    cantidad = fields.Char(string='Cantidad')
+    calidad = fields.Char(string='Certificado calidad')
+    descripcion = fields.Char(string='Descripcion')    
+    posicion = fields.Char(string='Posicion')
+    codigo_articulo = fields.Char(string='Codigo articulo SAP')
+    codigo_fabricante = fields.Char(string='Codigo fabricante')
+    fecha_maxima_entrega = fields.Char(string='Fecha maxima entrega')
+    numero_solicitudes = fields.Char(string='No solicitudes pedido')
+
+class Course(models.Model):
+    _name = 'openacademy.course'
+    _description = "OpenAcademy Courses"
+
+    name = fields.Char(string="Title", required=True)
+    description = fields.Text()
+    
 class stock_qua(models.Model):
     _inherit = 'stock.quant' 
     #file = fields.Binary(string='Guía de Remisión', attachment=True)
